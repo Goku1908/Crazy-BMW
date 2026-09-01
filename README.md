@@ -2,10 +2,6 @@
 
 # ✨ EXPERIENCE THE PROJECT LIVE
 
-<img src="https://i.pinimg.com/1200x/2a/88/86/2a88866f72d1ef784383e7e4a0d2d154.jpg" alt="Website Preview" width="100%" />
-
-<br/>
-
 ### 🚀 Don't just explore the code...
 
 # 🌐 See the Website Come to Life!
@@ -14,8 +10,8 @@ Experience the complete design, smooth animations, interactive elements, and fea
 
 <br/>
 
-<a href="YOUR_WEBSITE_LINK_HERE">
-  <img src="https://goku1908.github.io/Crazy-BMW/" />
+<a href="https://goku1908.github.io/Crazy-BMW/">
+  <img src="https://i.pinimg.com/1200x/2a/88/86/2a88866f72d1ef784383e7e4a0d2d154.jpg" height="50%" width="100%"/>
 </a>
 
 <br/><br/>
