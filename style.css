@@ -1,0 +1,636 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0b0b0b;
+  overflow-x: hidden;
+  color: white;
+  font-family: "Inter", sans-serif;
+}
+
+/* =========================
+       CANVAS
+    ========================= */
+
+.canvas-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* =========================
+       TYPOGRAPHY OVERLAY
+    ========================= */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* DARK CINEMATIC GRADIENT */
+
+.overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.42),
+      transparent 35%,
+      transparent 70%,
+      rgba(0, 0, 0, 0.22)
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.35), transparent 30%);
+  pointer-events: none;
+}
+
+/* =========================
+       GLOBAL TOP BAR
+    ========================= */
+
+.top-bar {
+  position: absolute;
+  top: 25px;
+  left: 35px;
+  right: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: white;
+  opacity: 0.85;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  display: flex;
+  gap: 3px;
+}
+
+.brand-mark i {
+  display: block;
+  width: 7px;
+  height: 22px;
+}
+
+.brand-mark i:nth-child(1) {
+  background: #1671b9;
+}
+
+.brand-mark i:nth-child(2) {
+  background: #d10c25;
+}
+
+.brand-mark i:nth-child(3) {
+  background: white;
+}
+
+/* =========================
+       BOTTOM PROGRESS
+    ========================= */
+
+.progress-line {
+  position: absolute;
+  bottom: 25px;
+  left: 35px;
+  width: 170px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: white;
+}
+
+.frame-info {
+  position: absolute;
+  bottom: 18px;
+  right: 35px;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+/* =========================
+       SCENE BASE
+    ========================= */
+
+.scene {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s linear;
+  will-change: opacity, transform;
+}
+
+.mono {
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  line-height: 1.7;
+}
+
+.eyebrow {
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  margin-bottom: 15px;
+  opacity: 0.85;
+}
+
+.display {
+  font-family: "Barlow Condensed", sans-serif;
+  text-transform: uppercase;
+}
+
+/* =========================
+       SCENE 1
+       INTRO POSTER
+    ========================= */
+
+.scene-1 {
+  padding: 15vh 7vw;
+}
+
+.scene-1 .small-intro {
+  position: absolute;
+  left: 8vw;
+  top: 16vh;
+}
+
+.scene-1 .main-title {
+  position: absolute;
+  left: 7vw;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(110px, 20vw, 360px);
+  line-height: 0.7;
+  letter-spacing: -10px;
+}
+
+.scene-1 .main-title span {
+  display: block;
+}
+
+.scene-1 .main-title .thin {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 300;
+  letter-spacing: -5px;
+  margin-left: 10vw;
+}
+
+.vertical-copy {
+  position: absolute;
+  right: 5vw;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 5px;
+  display: flex;
+  gap: 18px;
+}
+
+/* =========================
+       SCENE 2
+       TECHNICAL SPEED
+    ========================= */
+
+.scene-2 .giant-number {
+  position: absolute;
+  right: 7vw;
+  top: 5vh;
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(180px, 30vw, 500px);
+  line-height: 1;
+  opacity: 0.14;
+}
+
+.scene-2 .content {
+  position: absolute;
+  left: 8vw;
+  bottom: 14vh;
+}
+
+.scene-2 h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(90px, 16vw, 260px);
+  line-height: 0.72;
+  font-weight: 900;
+  letter-spacing: -6px;
+}
+
+.scene-2 .spec-row {
+  display: flex;
+  gap: 45px;
+  margin-top: 35px;
+}
+
+.spec-item {
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  padding-left: 15px;
+}
+
+.spec-item strong {
+  display: block;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.spec-item span {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  opacity: 0.75;
+}
+
+/* =========================
+       SCENE 3
+       POWER TYPOGRAPHY
+    ========================= */
+
+.scene-3 .background-word {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(120px, 25vw, 450px);
+  letter-spacing: -15px;
+  opacity: 0.16;
+  white-space: nowrap;
+}
+
+.scene-3 .right-content {
+  position: absolute;
+  right: 8vw;
+  top: 20vh;
+  text-align: right;
+}
+
+.scene-3 h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(80px, 14vw, 230px);
+  line-height: 0.75;
+  font-weight: 900;
+  letter-spacing: -6px;
+}
+
+.scene-3 p {
+  max-width: 300px;
+  margin: 25px 0 0 auto;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  line-height: 1.9;
+  opacity: 0.85;
+}
+
+/* =========================
+       SCENE 4
+       POSTER PANELS
+    ========================= */
+
+.scene-4 .poster-title {
+  position: absolute;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(70px, 13vw, 220px);
+  white-space: nowrap;
+  letter-spacing: -8px;
+}
+
+.poster-panels {
+  position: absolute;
+  top: 28vh;
+  left: 10vw;
+  right: 10vw;
+  height: 55vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.poster-panel {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.poster-panel span {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+/* =========================
+       SCENE 5
+       SPLIT EDITORIAL
+    ========================= */
+
+.scene-5 .left-word {
+  position: absolute;
+  left: 7vw;
+  top: 22vh;
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(100px, 18vw, 300px);
+  line-height: 0.7;
+}
+
+.scene-5 .right-word {
+  position: absolute;
+  right: 7vw;
+  bottom: 22vh;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 300;
+  font-size: clamp(90px, 17vw, 280px);
+  line-height: 0.7;
+  letter-spacing: -8px;
+}
+
+.scene-5 .technical-line {
+  position: absolute;
+  left: 7vw;
+  right: 7vw;
+  bottom: 10vh;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.scene-5 .technical-line::before {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 4px;
+  top: -2px;
+  left: 0;
+  background: white;
+}
+
+/* =========================
+       SCENE 6
+       PERFORMANCE DATA
+    ========================= */
+
+.scene-6 .section-title {
+  position: absolute;
+  left: 8vw;
+  top: 18vh;
+}
+
+.scene-6 h2 {
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(80px, 15vw, 250px);
+  line-height: 0.72;
+  letter-spacing: -8px;
+}
+
+.performance-grid {
+  position: absolute;
+  left: 8vw;
+  bottom: 10vh;
+  display: grid;
+  grid-template-columns: repeat(3, 160px);
+  gap: 35px;
+}
+
+.performance-card {
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+  padding-top: 14px;
+}
+
+.performance-card small {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.performance-card strong {
+  display: block;
+  margin-top: 8px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 42px;
+  letter-spacing: -1px;
+}
+
+.performance-card span {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  opacity: 0.7;
+}
+
+/* =========================
+       SCENE 7
+       FINAL POSTER
+    ========================= */
+
+.scene-7 .final-small {
+  position: absolute;
+  top: 18vh;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.scene-7 .final-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Archivo Black", sans-serif;
+  text-align: center;
+  font-size: clamp(100px, 20vw, 350px);
+  line-height: 0.68;
+  letter-spacing: -12px;
+  white-space: nowrap;
+}
+
+.scene-7 .final-title span {
+  display: block;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 300;
+}
+
+.final-data {
+  position: absolute;
+  bottom: 13vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 40px;
+  white-space: nowrap;
+}
+
+.final-data div {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* =========================
+       M PERFORMANCE STRIPES
+    ========================= */
+
+.m-stripes {
+  position: absolute;
+  left: 7vw;
+  bottom: 8vh;
+  display: flex;
+  gap: 4px;
+}
+
+.m-stripes i {
+  display: block;
+  width: 12px;
+  height: 45px;
+  transform: skewX(-20deg);
+}
+
+.m-stripes i:nth-child(1) {
+  background: #1668ad;
+}
+
+.m-stripes i:nth-child(2) {
+  background: #d60a2a;
+}
+
+.m-stripes i:nth-child(3) {
+  background: white;
+}
+
+/* =========================
+       SCROLL SPACE
+    ========================= */
+
+.scroll-space {
+  height: 750vh;
+}
+
+/* =========================
+       MOBILE
+    ========================= */
+
+@media (max-width: 700px) {
+  .top-bar {
+    left: 18px;
+    right: 18px;
+    top: 18px;
+    font-size: 8px;
+  }
+
+  .progress-line {
+    left: 18px;
+    width: 100px;
+  }
+
+  .frame-info {
+    right: 18px;
+  }
+
+  .scene-1 .main-title {
+    font-size: clamp(85px, 24vw, 170px);
+    letter-spacing: -5px;
+  }
+
+  .vertical-copy {
+    right: 18px;
+    font-size: 8px;
+  }
+
+  .scene-2 .content {
+    left: 7vw;
+    bottom: 16vh;
+  }
+
+  .spec-row {
+    gap: 20px !important;
+  }
+
+  .poster-panels {
+    left: 5vw;
+    right: 5vw;
+  }
+
+  .performance-grid {
+    left: 7vw;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    width: 86vw;
+  }
+
+  .performance-card strong {
+    font-size: 28px;
+  }
+
+  .scene-7 .final-title {
+    font-size: clamp(80px, 22vw, 170px);
+    letter-spacing: -5px;
+  }
+
+  .final-data {
+    gap: 15px;
+  }
+}
+
+.music-button {
+  position: fixed;
+  right: 35px;
+  bottom: 55px;
+  z-index: 1000;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.35);
+  color: white;
+  padding: 11px 16px;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: 0.3s ease;
+}
+
+.music-button:hover {
+  background: white;
+  color: black;
+}
+
+.music-button.playing {
+  border-color: white;
+}
