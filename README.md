@@ -10,7 +10,7 @@ Experience the complete design, smooth animations, interactive elements, and fea
 
 <br/>
 
-<a href="https://goku1908.github.io/Crazy-BMW/">
+<a href="https://goku1908.github.io/Crazy-BMW/" height="30%">
   <img src="https://i.pinimg.com/1200x/2a/88/86/2a88866f72d1ef784383e7e4a0d2d154.jpg" height="20%" width="100%"/>
 </a>
 
