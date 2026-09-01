@@ -6,8 +6,6 @@
 
 # 🌐 See the Website Come to Life!
 
-Experience the complete design, smooth animations, interactive elements, and features directly in your browser.
-
 <br/>
 
 <a href="https://goku1908.github.io/Crazy-BMW/" height="30%">
