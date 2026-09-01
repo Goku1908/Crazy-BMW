@@ -15,9 +15,8 @@ let currentFrame = -1;
 let rafId = null;
 
 function getFrameURL(index) {
-    return `${CLOUDINARY}f_auto,q_auto,w_1280/frame_${index + 1}.jpg`;
+    return `${CLOUDINARY}c_scale,w_1280/q_auto/f_auto/frame_${index + 1}.jpg`;
 }
-
 /* CANVAS */
 
 function resizeCanvas() {
