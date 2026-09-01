@@ -1,4 +1,4 @@
-<div align="center">
+<div align="center" height="30%">
 
 # ✨ EXPERIENCE THE PROJECT LIVE
 
