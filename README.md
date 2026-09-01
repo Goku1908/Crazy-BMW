@@ -16,7 +16,7 @@ Experience the complete design, smooth animations, interactive elements, and fea
 
 <br/><br/>
 
-> 💡 **Click the button above and experience the project yourself!**
+> 💡 **Click the image above and experience the project yourself!**
 
 ⭐ If you enjoyed this project, consider giving the repository a **Star**!
 
