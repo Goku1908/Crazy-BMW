@@ -14,7 +14,7 @@
 
 <br/><br/>
 
-> 💡 **Click the image above and experience the project yourself!**
+> 💡 Click the image above and experience the project yourself!
 
 ⭐ If you enjoyed this project, consider giving the repository a **Star**!
 
